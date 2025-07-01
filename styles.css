@@ -1,0 +1,2773 @@
+/* Variáveis de Cores (Ajustadas com base na logo e apresentação fornecida) */
+:root {
+    --engetek-dark-gray: #2F363F;
+    /* Um cinza escuro/grafite, similar ao fundo da logo */
+    --engetek-text-white: #F0F0F0;
+    /* Um branco para textos, pode ser puro #FFFFFF ou levemente cinza */
+    --engetek-white: #FFFFFF;
+    /* Branco puro para elementos de destaque e fundos claros */
+    --engetek-accent: #FF6700;
+    /* Laranja vibrante da linha de destaque da logo e apresentação */
+    --engetek-light-bg: #F8F9FA;
+    /* Fundo claro para seções secundárias */
+}
+
+/* Estilos Globais */
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Aplica como fonte principal para o corpo e títulos */
+    color: var(--engetek-dark-gray);
+    overflow-x: hidden;
+}
+
+/* Cabeçalho */
+.main-header .navbar {
+    background-color: var(--engetek-white) !important;
+    /* Fundo do navbar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #FF6700;
+}
+
+.main-footer li a:hover {
+    color: #FF6700 !important;
+}
+
+.main-header .nav-link {
+    color: var(--engetek-dark-gray) !important;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.main-header .nav-link:hover {
+    color: var(--engetek-accent) !important;
+}
+
+.main-header .btn-primary {
+    background-color: var(--engetek-accent);
+    border-color: var(--engetek-accent);
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.main-header .btn-primary:hover {
+    background-color: #E05D00;
+    /* Um tom mais escuro do laranja */
+    border-color: #E05D00;
+}
+
+
+/* Seção Herói (Hero Section) */
+#hero {
+    background: linear-gradient(rgba(47, 54, 63, 0.7), rgba(47, 54, 63, 0.7)), url('../images/bannerHeroImage.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    /* Altura total da viewport */
+    position: relative;
+    overflow: hidden;
+    color: var(--engetek-white);
+    display: flex;
+    /* Garante que o conteúdo seja centralizado verticalmente */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    /* Sombra para o texto branco */
+    padding-bottom: 0;
+}
+
+/* Animação para o fundo da seção herói (zoom sutil) */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/bannerHeroImage.png') no-repeat center center;
+    /* Repete a imagem para a animação */
+    background-size: cover;
+    animation: heroZoom 20s infinite alternate;
+    /* Animação de zoom */
+    z-index: -1;
+    /* Fica atrás do conteúdo */
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    opacity: 0;
+    /* Inicia invisível para a animação */
+    animation: fadeInDown 1s forwards 0.5s;
+    /* Atraso de 0.5s */
+}
+
+#hero p.lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.8s;
+    /* Atraso de 0.8s */
+}
+
+#hero .btn {
+    background-color: var(--engetek-accent);
+    /* Botão de destaque */
+    border-color: var(--engetek-accent);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    /* Botão mais arredondado */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    opacity: 0;
+    animation: zoomIn 1s forwards 1.2s;
+    /* Atraso de 1.2s */
+}
+
+#hero .btn:hover {
+    transform: translateY(-5px);
+    /* Efeito de elevação no hover */
+    background-color: #E05D00;
+    border-color: #E05D00;
+}
+
+/* Forma angular na parte inferior da seção Hero */
+#hero .shape-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    /* Altura da forma */
+    background-color: var(--engetek-accent);
+    /* Cor de destaque */
+    /* Exemplo de forma angular que transiciona para a próxima seção */
+    clip-path: polygon(0% 65%, 20% 25%, 80% 25%, 100% 65%, 100% 100%, 0% 100%);
+    z-index: 1;
+    /* Para ficar acima do fundo, mas abaixo do conteúdo principal da seção */
+}
+
+#hero .shape-bottom::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: 50vw;
+    height: 3px;
+    background-color: var(--engetek-dark-gray);
+    border-radius: 5px;
+}
+
+.rounded {
+    border-radius: 0px 50px !important;
+}
+
+.about_us {
+    max-width: 70%;
+    height: auto;
+}
+
+/* Animações genéricas (você pode aplicá-las a outros elementos) */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Seção Nossos Serviços */
+#services-preview {
+    background-color: var(--engetek-light-bg);
+    /* Fundo claro para a seção */
+    padding: 80px 0;
+    /* Padding padrão */
+    position: relative;
+    margin-top: -80px;
+    padding-top: 120px;
+    overflow: hidden;
+    /* Garante que a forma não transborde */
+}
+
+#services-preview h2 {
+    color: var(--engetek-dark-gray);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#services-preview .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#services-preview .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+#services-preview .service-icon {
+    font-size: 3rem;
+    color: var(--engetek-accent);
+    /* Ícones na cor de destaque */
+    margin-bottom: 15px;
+}
+
+#services-preview .card-title {
+    color: var(--engetek-dark-gray);
+    font-weight: 600;
+}
+
+#services-preview .btn-outline-secondary {
+    color: var(--engetek-dark-gray);
+    border-color: var(--engetek-dark-gray);
+    transition: all 0.3s ease-in-out;
+}
+
+#services-preview .btn-outline-secondary:hover {
+    background-color: var(--engetek-dark-gray);
+    color: var(--engetek-white);
+}
+
+/* Forma angular na parte superior da seção Serviços */
+#services-preview .shape-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: var(--engetek-dark-gray);
+    clip-path: polygon(0% 60%, 20% 100%, 80% 100%, 100% 60%, 100% 0%, 0% 0%);
+    z-index: 0;
+}
+
+#services-preview .shape-top::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: 15vw;
+    height: 3px;
+    background-color: var(--engetek-accent);
+    border-radius: 5px;
+}
+
+
+/* Seção Sobre a ENGETEK */
+#about-brief {
+    padding: 80px 0;
+    background-color: var(--engetek-white);
+}
+
+#about-brief h2 {
+    color: var(--engetek-dark-gray);
+    font-weight: 700;
+}
+
+#about-brief p {
+    color: var(--engetek-dark-gray);
+}
+
+#about-brief .btn-primary {
+    background-color: var(--engetek-accent);
+    border-color: var(--engetek-accent);
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+#about-brief .btn-primary:hover {
+    background-color: #E05D00;
+    border-color: #E05D00;
+}
+
+/* Seção Diferenciais */
+#diferenciais {
+    padding: 80px 0;
+    background-color: var(--engetek-light-bg);
+}
+
+#diferenciais h2 {
+    color: var(--engetek-dark-gray);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#diferenciais h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30vw;
+    height: 3px;
+    background-color: var(--engetek-accent);
+    border-radius: 5px;
+}
+
+#diferenciais .diferencial-icon {
+    font-size: 3.5rem;
+    color: var(--engetek-accent);
+    /* Ícones com a cor de destaque */
+    margin-bottom: 15px;
+    animation: bounceIn 1s forwards;
+}
+
+/* Animação para ícones (aparecendo com um "salto") */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#diferenciais h4 {
+    color: var(--engetek-dark-gray);
+    font-weight: 600;
+}
+
+#diferenciais p {
+    color: var(--engetek-dark-gray);
+}
+
+/* Rodapé */
+.main-footer {
+    background-color: var(--engetek-dark-gray) !important;
+    color: var(--engetek-white);
+}
+
+.main-footer h5 {
+    color: var(--engetek-white);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.main-footer ul {
+    padding-left: 0;
+}
+
+.main-footer ul li {
+    margin-bottom: 10px;
+}
+
+.main-footer ul li i {
+    color: var(--engetek-accent);
+    /* Ícones de contato com destaque */
+}
+
+.main-footer a {
+    color: var(--engetek-white);
+    transition: color 0.3s ease-in-out;
+}
+
+.main-footer a:hover {
+    color: var(--engetek-accent);
+}
+
+.main-footer .social-links a {
+    font-size: 1rem;
+}
+
+.main-footer .social-links a i {
+    padding-right: 5px;
+}
+
+.main-footer .social-links a:hover {
+    transform: translateY(-3px);
+    color: #E05D00;
+}
+
+/* Fade-In: Elemento aparece gradualmente */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-In: Elemento desliza da esquerda */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Zoom-In: Elemento aumenta de tamanho */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Aplicando as animações */
+.secao-fade {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.secao-slide {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.secao-zoom {
+    animation: zoomIn 1s ease-in-out;
+}
+
+/* Exemplo de animação em botão ao passar o mouse */
+.btn {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Variáveis de Cores (Mantendo o que já temos) */
+:root {
+    --engetek-dark-gray: #2F363F;
+    /* Um cinza escuro/grafite */
+    --engetek-text-white: #F0F0F0;
+    --engetek-white: #FFFFFF;
+    --engetek-accent: #FF6700;
+    /* Laranja vibrante */
+    --engetek-light-bg: #F8F9FA;
+    /* Fundo claro */
+    --engetek-lighter-gray: #E9ECEF;
+    /* Um cinza ainda mais claro para fundos */
+}
+
+/* Estilos Globais (Pode manter os existentes) */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--engetek-dark-gray);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--engetek-dark-gray);
+}
+
+/* Classes para animações de scroll (Mantenha estas, com as correções já feitas) */
+.initial-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Padrão para slide-up */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Transição um pouco mais longa para suavidade */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+}
+
+.slide-in-left {
+    transform: translateX(-80px) translateY(20px);
+    /* Combina slide e fade-up */
+}
+
+.slide-in-right {
+    transform: translateX(80px) translateY(20px);
+    /* Combina slide e fade-up */
+}
+
+.fade-in-scale-up {
+    transform: scale(0.9) translateY(20px);
+    /* Combina scale e fade-up, scale ajustado para 0.9 */
+}
+
+.delay-05 {
+    transition-delay: 0.05s;
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.delay-5 {
+    transition-delay: 0.5s;
+}
+
+/* Novos delays, para mais elementos */
+.delay-6 {
+    transition-delay: 0.6s;
+}
+
+
+/* --- Novas/Atualizadas classes para um design moderno de contato --- */
+
+/* Seção de Título da Página de Contato - Estilo mais clean e com imagem */
+#page-title {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    color: var(--engetek-white);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+    /* Sombra mais forte para texto em fundo escuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    /* Um pouco mais alta para impacto visual */
+    background: linear-gradient(rgba(47, 54, 63, 0.7), rgba(47, 54, 63, 0.7)), url('../images/bannerContact.png') no-repeat center center;
+    /* Nova imagem para um visual mais 'engenharia' */
+    background-size: cover;
+    /* Animação de fundo sutil se desejar: */
+    animation: pageTitleZoom 20s infinite alternate;
+}
+
+@keyframes pageTitleZoom {
+    from {
+        background-size: 100% auto;
+    }
+
+    to {
+        background-size: 105% auto;
+    }
+}
+
+
+#page-title h1 {
+    font-size: 3.5rem;
+    /* Título maior */
+    font-weight: 800;
+    /* Mais ousado */
+}
+
+#page-title p.lead {
+    font-size: 1.4rem;
+    /* Texto mais legível */
+    max-width: 700px;
+    /* Limita a largura para melhor leitura */
+    margin: 0 auto 20px auto;
+    /* Centraliza */
+}
+
+
+/* Seção de Contato Principal - Layout moderno com card integrado */
+#contact-content {
+    padding: 80px 0;
+    background-color: var(--engetek-lighter-gray);
+    /* Fundo mais claro para contraste */
+}
+
+#contact-content h2 {
+    color: var(--engetek-dark-gray);
+    font-weight: 700;
+    margin-bottom: 40px;
+    /* Mais espaço */
+    position: relative;
+    padding-bottom: 15px;
+    /* Espaço para a linha de destaque */
+}
+
+#contact-content h2::after {
+    /* Linha de destaque abaixo do título da seção */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    /* Largura da linha */
+    height: 4px;
+    /* Linha um pouco mais grossa */
+    background-color: var(--engetek-accent);
+    border-radius: 5px;
+}
+
+
+/* Estilo do Formulário */
+#contact-content form {
+    padding: 30px;
+    /* Padding interno no formulário */
+    background-color: var(--engetek-white);
+    border-radius: 12px;
+    /* Cantos mais arredondados */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    /* Sombra mais pronunciada e moderna */
+}
+
+#contact-content .form-label {
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 8px;
+    /* Espaço entre label e input */
+}
+
+#contact-content .form-control {
+    border-radius: 8px;
+    /* Bordas mais suaves para inputs */
+    padding: 12px 15px;
+    /* Padding interno maior */
+    border: 1px solid #CED4DA;
+    /* Borda padrão */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#contact-content .form-control:focus {
+    border-color: var(--engetek-accent);
+    box-shadow: 0 0 0 0.2rem rgba(255, 103, 0, 0.35);
+    /* Sombra de foco mais intensa */
+    outline: none;
+    /* Remove o outline padrão */
+}
+
+#contact-content textarea.form-control {
+    min-height: 120px;
+    /* Altura mínima para a área de texto */
+    resize: vertical;
+    /* Permite redimensionar verticalmente */
+}
+
+#contact-content .btn-primary {
+    background-color: var(--engetek-accent);
+    border-color: var(--engetek-accent);
+    padding: 12px 30px;
+    /* Botão maior */
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    /* Pill button */
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#contact-content .btn-primary:hover {
+    background-color: #E05D00;
+    /* Tom mais escuro no hover */
+    transform: translateY(-3px);
+    /* Pequeno efeito de elevação */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilo das Informações de Contato */
+#contact-info-details {
+    /* Nova ID para a coluna de informações de contato */
+    padding: 30px;
+    background-color: var(--engetek-white);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+#contact-info-details .list-unstyled li {
+    display: flex;
+    /* Para alinhar ícone e texto */
+    align-items: flex-start;
+    /* Alinha o topo do texto com o topo do ícone */
+    margin-bottom: 25px;
+    /* Mais espaço entre os itens */
+}
+
+#contact-info-details .list-unstyled li i {
+    font-size: 1.8rem;
+    /* Ícones maiores */
+    color: var(--engetek-accent);
+    margin-right: 15px;
+    /* Mais espaço à direita do ícone */
+    min-width: 30px;
+    /* Garante que o ícone tenha espaço suficiente */
+    text-align: center;
+    /* Centraliza o ícone se for menor */
+}
+
+#contact-info-details .list-unstyled li h5 {
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 5px;
+}
+
+#contact-info-details .list-unstyled li p {
+    margin-bottom: 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+#contact-info-details .list-unstyled li a {
+    color: var(--engetek-dark-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact-info-details .list-unstyled li a:hover {
+    color: var(--engetek-accent);
+}
+
+/* Horário de Funcionamento */
+#contact-info-details h5.working-hours-title {
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-top: 1px solid var(--engetek-lighter-gray);
+    /* Linha divisória */
+    padding-top: 20px;
+}
+
+#contact-info-details p.working-hours-text {
+    color: #555;
+    font-size: 1rem;
+}
+
+
+/* Seção do Mapa */
+#map-section {
+    padding: 80px 0;
+    background-color: var(--engetek-lighter-gray);
+    /* Fundo correspondente à seção de contato */
+}
+
+#map-section h2 {
+    color: var(--engetek-dark-gray);
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#map-section h2::after {
+    /* Linha de destaque abaixo do título da seção */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 50vw;
+    height: 4px;
+    background-color: var(--engetek-accent);
+    border-radius: 5px;
+}
+
+.map-container {
+    border-radius: 12px;
+    /* Cantos mais arredondados */
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    /* Sombra moderna */
+    background-color: var(--engetek-white);
+    /* Fundo para o caso do iframe não carregar */
+    padding: 10px;
+    /* Pequeno padding para uma borda visual */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 480px;
+    /* Mapa um pouco mais alto */
+    border: 0;
+    border-radius: 8px;
+    /* Borda interna do iframe */
+}
+
+/* Rodapé (Manter as animações de slide-in-up e fade-in-scale-up para o rodapé) */
+/* (O rodapé já está estilizado para ser escuro, o que é moderno) */
+
+/* Ajustes de Responsividade (Adicionar mais) */
+@media (max-width: 991.98px) {
+
+    /* Para tablets e mobile */
+    #contact-content .col-lg-7,
+    #contact-content .col-lg-5 {
+        margin-bottom: 40px;
+        /* Mais espaço entre colunas empilhadas */
+    }
+
+    #contact-content form,
+    #contact-info-details {
+        padding: 25px;
+        /* Padding um pouco menor em telas menores */
+    }
+
+    .map-container iframe {
+        height: 350px;
+        /* Mapa menor em mobile */
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    /* Para mobile */
+    #page-title h1 {
+        font-size: 2.8rem;
+    }
+
+    #page-title p.lead {
+        font-size: 1.1rem;
+    }
+
+    #contact-content h2,
+    #map-section h2 {
+        font-size: 1.8rem;
+    }
+
+    #contact-content .form-control {
+        padding: 10px 12px;
+    }
+}
+
+.initial-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+}
+
+.slide-in-left {
+    transform: translateX(-80px) translateY(20px);
+}
+
+.slide-in-right {
+    transform: translateX(80px) translateY(20px);
+}
+
+.fade-in-scale-up {
+    transform: scale(0.9) translateY(20px);
+}
+
+.delay-05 {
+    transition-delay: 0.05s;
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.delay-5 {
+    transition-delay: 0.5s;
+}
+
+.delay-6 {
+    transition-delay: 0.6s;
+}
+
+
+/* --- NOVAS/ATUALIZADAS CLASSES PARA O NOVO LAYOUT DE CONTATO --- */
+
+/* Banner de Título da Página de Contato (Similar ao Hero) */
+#contact-hero-banner {
+    /* Nova ID para um banner de página mais versátil */
+    padding-top: 100px;
+    /* Para não ficar atrás do navbar */
+    padding-bottom: 80px;
+    /* Mais padding para conteúdo */
+    position: relative;
+    overflow: hidden;
+    color: var(--engetek-white);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    /* Altura maior para impacto */
+    background: linear-gradient(rgba(47, 54, 63, 0.75), rgba(47, 54, 63, 0.75)), url('../images/bannerContact.png') no-repeat center center;
+    background-size: cover;
+    animation: bannerZoom 20s infinite alternate;
+    /* Animação sutil de zoom */
+}
+
+@keyframes bannerZoom {
+    from {
+        background-size: 100% auto;
+    }
+
+    to {
+        background-size: 105% auto;
+    }
+}
+
+#contact-hero-banner h1 {
+    font-size: 4rem;
+    /* Título bem grande */
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+#contact-hero-banner p.lead {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* Seção de Conteúdo Principal (Nova Estrutura) */
+#contact-page-content {
+    /* Nova ID para a seção principal de conteúdo */
+    padding: 80px 0;
+    background-color: var(--engetek-lightest-gray);
+    /* Fundo muito claro */
+}
+
+#contact-page-content .section-title {
+    /* Títulos de seção genéricos */
+    color: var(--engetek-dark-gray);
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#contact-page-content .section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 50vw;
+    height: 4px;
+    background-color: var(--engetek-accent);
+    border-radius: 5px;
+}
+
+/* Estilos para os Cards de Informação e Formulário */
+.contact-card {
+    background-color: var(--engetek-white);
+    border-radius: 15px;
+    /* Cantos mais arredondados */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    /* Sombra mais destacada */
+    padding: 40px;
+    /* Padding interno generoso */
+    height: 100%;
+    /* Garante que os cards tenham a mesma altura na linha */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Espaça o conteúdo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    /* Pequeno lift no hover */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card h3 {
+    font-weight: 700;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Estilo do Formulário */
+.contact-form-card .form-label {
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 8px;
+}
+
+.contact-form-card .form-control {
+    border-radius: 10px;
+    /* Bordas suaves para inputs */
+    padding: 12px 18px;
+    /* Padding interno maior */
+    border: 1px solid #DEE2E6;
+    /* Borda um pouco mais visível */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: var(--engetek-lightest-gray);
+    /* Fundo mais claro para os inputs */
+}
+
+.contact-form-card .form-control:focus {
+    border-color: var(--engetek-accent);
+    box-shadow: 0 0 0 0.2rem rgba(255, 103, 0, 0.3);
+    outline: none;
+    background-color: var(--engetek-white);
+    /* Fundo branco no foco */
+}
+
+.contact-form-card textarea.form-control {
+    min-height: 150px;
+    /* Altura mínima para a área de texto */
+    resize: vertical;
+}
+
+.contact-form-card .btn-primary {
+    background-color: var(--engetek-accent);
+    border-color: var(--engetek-accent);
+    padding: 14px 40px;
+    /* Botão maior */
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.contact-form-card .btn-primary:hover {
+    background-color: #E05D00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo das Informações de Contato Direto */
+.direct-contact-card .list-unstyled li {
+    display: flex;
+    align-items: center;
+    /* Alinha o centro verticalmente */
+    margin-bottom: 25px;
+}
+
+.direct-contact-card .list-unstyled li i {
+    font-size: 2.2rem;
+    /* Ícones grandes */
+    color: var(--engetek-accent);
+    margin-right: 20px;
+    min-width: 40px;
+    text-align: center;
+    line-height: 1;
+    /* Garante que o ícone não "empurre" o texto */
+}
+
+.direct-contact-card .list-unstyled li h5 {
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 2px;
+}
+
+.direct-contact-card .list-unstyled li p {
+    margin-bottom: 0;
+    color: #555;
+    line-height: 1.4;
+}
+
+.direct-contact-card .list-unstyled li a {
+    color: var(--engetek-dark-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.direct-contact-card .list-unstyled li a:hover {
+    color: var(--engetek-accent);
+}
+
+/* Horário de Funcionamento e Redes Sociais no Card de Informações */
+.direct-contact-card .working-hours,
+.direct-contact-card .social-connect {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--engetek-lighter-gray);
+}
+
+.direct-contact-card .working-hours h5,
+.direct-contact-card .social-connect h5 {
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 10px;
+}
+
+.direct-contact-card .social-connect a {
+    font-size: 1.8rem;
+    /* Ícones sociais maiores */
+    color: var(--engetek-dark-gray);
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.direct-contact-card .social-connect a:hover {
+    color: var(--engetek-accent);
+    transform: translateY(-3px);
+}
+
+
+/* Seção do Mapa */
+#map-section {
+    padding: 0px 0 80px 0;
+    /* Remover padding superior, pois o mapa será mais integrado */
+    background-color: var(--engetek-lightest-gray);
+    /* Manter o fundo claro */
+}
+
+#map-section .section-title {
+    /* Reaproveita o estilo de título de seção */
+    margin-bottom: 40px;
+    padding-top: 50px;
+    /* Adiciona padding superior para o título do mapa */
+}
+
+.map-container {
+    border-radius: 15px;
+    /* Cantos mais arredondados */
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    background-color: var(--engetek-white);
+    padding: 15px;
+    /* Mais padding para uma "moldura" visual */
+    width: 100%;
+    /* Ocupa a largura total do container */
+    margin: 0 auto;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 500px;
+    /* Mapa mais alto */
+    border: 0;
+    border-radius: 10px;
+    /* Borda interna do iframe */
+}
+
+/* Ajustes de Responsividade para o Novo Layout */
+@media (max-width: 991.98px) {
+
+    /* Tablets e mobile */
+    #contact-hero-banner h1 {
+        font-size: 3rem;
+    }
+
+    #contact-hero-banner p.lead {
+        font-size: 1.2rem;
+    }
+
+    .contact-card {
+        margin-bottom: 30px;
+        /* Espaço entre cards empilhados */
+        padding: 30px;
+    }
+
+    .contact-card h3 {
+        margin-bottom: 20px;
+    }
+
+    .direct-contact-card .list-unstyled li {
+        margin-bottom: 20px;
+    }
+
+    .direct-contact-card .list-unstyled li i {
+        font-size: 1.8rem;
+        margin-right: 15px;
+    }
+
+    .contact-form-card .form-control {
+        padding: 10px 15px;
+    }
+
+    .contact-form-card .btn-primary {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    .map-container iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    /* Mobile */
+    #contact-hero-banner {
+        min-height: 40vh;
+        padding-bottom: 50px;
+    }
+
+    #contact-hero-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    #contact-hero-banner p.lead {
+        font-size: 1rem;
+    }
+
+    .contact-card {
+        padding: 25px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        /* Sombra mais suave em mobile */
+    }
+
+    .contact-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .direct-contact-card .list-unstyled li i {
+        font-size: 1.6rem;
+    }
+
+    .map-container {
+        padding: 10px;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+* Banner de Título da Página Sobre Nós */ #about-hero-banner {
+    /* Nova ID */
+    padding-top: 100px;
+    padding-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+    color: var(--engetek-white);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    /* Usando a imagem carregada pelo usuário image_a1f9bc.jpg */
+    background: linear-gradient(rgba(47, 54, 63, 0.75), rgba(47, 54, 63, 0.75)), url('../images/Screenshot\ 2025-06-28\ at\ 17-50-12\ civilin.jpg\ \(imagem\ JPEG\ 750\ ×\ 295\ pixels\).png') no-repeat center center;
+    background-size: cover;
+    animation: bannerZoom 20s infinite alternate;
+    /* Animação sutil de zoom */
+}
+
+/* Reutilizando section-title (já deve existir do contato.html) */
+/* .section-title {
+    color: var(--engetek-dark-gray);
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--engetek-accent);
+    border-radius: 5px;
+} */
+/* Caso o título de seção precise ser alinhado à esquerda: */
+.section-title.text-start::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+
+/* Seção Nossa História */
+#our-story {
+    padding: 80px 0;
+    background-color: var(--engetek-white);
+    /* Fundo branco para esta seção */
+}
+
+#our-story img {
+    max-width: 55%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    /* Consistente com outros cards */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    /* Sombra suave */
+}
+
+#our-story p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+#our-story p.lead {
+    color: var(--engetek-dark-gray);
+    font-weight: 600;
+}
+
+
+/* Seção Missão, Visão e Valores */
+#mission-vision-values {
+    padding: 80px 0;
+    background-color: var(--engetek-light-bg);
+    /* Fundo um pouco mais escuro que lightest-gray */
+}
+
+.value-card {
+    background-color: var(--engetek-white);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    /* Garante que os cards tenham a mesma altura */
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.value-card i {
+    color: var(--engetek-accent);
+    /* Cor de destaque para os ícones */
+}
+
+.value-card h4 {
+    font-weight: 700;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.value-card ul li {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.value-card ul li i {
+    font-size: 1.1rem;
+    /* Ícones de check menores */
+}
+
+
+/* Seção Por Que Nos Escolher (no Sobre Nós) */
+#why-choose-us-about {
+    padding: 80px 0;
+    background-color: var(--engetek-white);
+    /* Fundo branco */
+}
+
+.feature-card {
+    /* Reutilizando e adaptando o estilo do home page */
+    background-color: var(--engetek-white);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* Sombra mais suave para não competir */
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card i {
+    color: var(--engetek-accent);
+}
+
+.feature-card h5 {
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--engetek-dark-gray);
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* Seção de Chamada para Ação (CTA) */
+#cta-about {
+    padding: 100px 0;
+    background: linear-gradient(rgba(47, 54, 63, 0.85), rgba(47, 54, 63, 0.85)), url('image_a1f9bc.jpg') no-repeat center center;
+    /* Mesma imagem do banner ou outra relevante */
+    background-size: cover;
+    background-attachment: fixed;
+    /* Efeito Parallax */
+    color: var(--engetek-white);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+#cta-about h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: inherit;
+    /* Pega a cor do pai (white) */
+}
+
+#cta-about p.lead {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+#cta-about .btn-primary {
+    background-color: var(--engetek-accent);
+    border-color: var(--engetek-accent);
+    padding: 15px 40px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+#cta-about .btn-primary:hover {
+    background-color: #E05D00;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Ajustes de Responsividade para Sobre Nós */
+@media (max-width: 991.98px) {
+    #about-hero-banner {
+        min-height: 40vh;
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    #about-hero-banner h1 {
+        font-size: 3rem;
+    }
+
+    #about-hero-banner p.lead {
+        font-size: 1.1rem;
+    }
+
+    #our-story .col-lg-6 {
+        margin-bottom: 30px;
+    }
+
+    .value-card,
+    .feature-card {
+        padding: 30px;
+    }
+
+    #cta-about h2 {
+        font-size: 2.2rem;
+    }
+
+    #cta-about p.lead {
+        font-size: 1.1rem;
+    }
+
+    #cta-about .btn-primary {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #about-hero-banner {
+        min-height: 30vh;
+        padding-top: 70px;
+        padding-bottom: 40px;
+    }
+
+    #about-hero-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    #about-hero-banner p.lead {
+        font-size: 1rem;
+    }
+
+    #our-story,
+    #mission-vision-values,
+    #why-choose-us-about,
+    #cta-about {
+        padding: 60px 0;
+    }
+
+    .value-card,
+    .feature-card {
+        padding: 25px;
+    }
+
+    .value-card i,
+    .feature-card i {
+        font-size: 3rem;
+        /* Ícones menores em mobile */
+    }
+
+    #cta-about h2 {
+        font-size: 1.8rem;
+    }
+}
+
+.btn-primary {
+    background-color: var(--engetek-accent);
+    border-color: var(--engetek-accent);
+    /* Padding ajustado */
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+    display: inline-flex;
+    /* Para alinhar ícone e texto */
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background-color: #E05D00;
+    border-color: #E05D00;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 103, 0, 0.3);
+    /* Sombra com cor do tema */
+}
+
+.btn-primary i {
+    margin-right: 8px;
+    /* Espaço para ícones em botões */
+}
+
+/* --- REFINAMENTOS PARA A PÁGINA "SOBRE NÓS" --- */
+
+/* Banner de Título da Página Sobre Nós */
+#about-hero-banner {
+    padding-top: 120px;
+    /* Mais espaço no topo */
+    padding-bottom: 100px;
+    /* Mais espaço no rodapé do banner */
+    min-height: 60vh;
+    /* Banner mais alto para maior impacto */
+    background: linear-gradient(rgba(47, 54, 63, 0.8), rgba(47, 54, 63, 0.8)), url('../images/banner7.png') no-repeat center center;
+    /* Overlay mais denso */
+    background-size: cover;
+    background-attachment: scroll;
+    /* Remover parallax se não for intencional aqui */
+    animation: bannerZoom 20s infinite alternate;
+}
+
+#about-hero-banner h1 {
+    font-size: 4.5rem;
+    /* Título ainda maior */
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    /* Sombra mais forte no texto */
+    letter-spacing: -1px;
+    /* Ajuste para um visual mais moderno */
+}
+
+#about-hero-banner p.lead {
+    font-size: 1.6rem;
+    /* Texto de lead maior */
+    font-weight: 400;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Títulos de Seção Genéricos */
+.section-title {
+    font-size: 2.5rem;
+    /* Títulos de seção maiores */
+    font-weight: 800;
+    /* Mais impacto */
+    margin-bottom: 50px;
+    /* Mais espaçamento */
+    position: relative;
+    padding-bottom: 20px;
+    /* Espaço para a linha */
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80vw;
+    /* Linha um pouco mais longa */
+    height: 5px;
+    /* Linha mais grossa */
+    background-color: var(--engetek-accent);
+    border-radius: 5px;
+}
+
+/* Alinhamento de título à esquerda se necessário */
+.section-title.text-start::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+
+/* Seção Nossa História */
+#our-story {
+    padding: 100px 0;
+    /* Padding mais generoso */
+    background-color: var(--engetek-white);
+}
+
+#our-story img {
+    border-radius: 15px;
+    /* Cantos mais arredondados */
+    box-shadow: var(--engetek-soft-shadow);
+    /* Nova sombra */
+    transform: perspective(1000px) rotateY(-5deg) scale(1.02);
+    /* Pequena rotação 3D para dinamismo */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    filter: brightness(0.95);
+    /* Leve escurecimento para um toque profissional */
+}
+
+#our-story img:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.03);
+    /* Endireita e aumenta no hover */
+    box-shadow: var(--engetek-strong-shadow);
+    filter: brightness(1);
+    /* Volta ao normal */
+}
+
+#our-story p.lead {
+    font-size: 1.3rem;
+    /* Lead da história mais destacado */
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+}
+
+#our-story p {
+    color: #666;
+    /* Texto um pouco mais claro para contraste */
+}
+
+
+/* Seção Missão, Visão e Valores */
+#mission-vision-values {
+    padding: 100px 0;
+    background-color: var(--engetek-lighter-gray);
+    /* Fundo um pouco mais presente */
+}
+
+.value-card {
+    background-color: var(--engetek-white);
+    border-radius: 15px;
+    /* Cantos mais arredondados */
+    box-shadow: var(--engetek-soft-shadow);
+    /* Sombra consistente */
+    padding: 40px;
+    /* Padding interno maior */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* Para esconder o efeito de borda inicial */
+    border: 2px solid transparent;
+    /* Borda transparente inicial */
+}
+
+.value-card::before {
+    /* Efeito de borda na cor de destaque */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    /* Linha superior mais fina */
+    background-color: var(--engetek-accent);
+    transform: translateY(-100%);
+    /* Escondido acima */
+    transition: transform 0.3s ease-out;
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    /* Elevação maior */
+    box-shadow: var(--engetek-strong-shadow);
+    border-color: var(--engetek-accent);
+    /* Borda sólida no hover */
+}
+
+.value-card:hover::before {
+    transform: translateY(0);
+    /* Desliza para baixo no hover */
+}
+
+.value-card i {
+    font-size: 3.5rem;
+    /* Ícones maiores */
+    color: var(--engetek-accent);
+    margin-bottom: 20px;
+    /* Garante que o ícone ocupe sua própria linha */
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover i {
+    transform: scale(1.1);
+    /* Ícone cresce um pouco no hover */
+}
+
+.value-card h4 {
+    font-size: 1.8rem;
+    /* Título do card maior */
+    font-weight: 800;
+    /* Mais forte */
+    margin-bottom: 20px;
+}
+
+.value-card ul li {
+    font-size: 1rem;
+    /* Texto da lista mais legível */
+    line-height: 1.8;
+    /* Melhor espaçamento da lista */
+}
+
+.value-card ul li i {
+    font-size: 1.2rem;
+    /* Ícones de check ajustados */
+    margin-right: 10px;
+}
+
+
+/* Seção Por Que Nos Escolher (no Sobre Nós) */
+#why-choose-us-about {
+    padding: 100px 0;
+    background-color: var(--engetek-white);
+}
+
+.feature-card {
+    background-color: var(--engetek-white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Sombra mais sutil */
+    padding: 35px;
+    /* Mais padding */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    border-bottom: 4px solid transparent;
+    /* Adicionar borda inferior transparente */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--engetek-accent);
+    /* Borda inferior na cor de destaque no hover */
+}
+
+.feature-card i {
+    font-size: 4rem;
+    /* Ícones maiores */
+    color: var(--engetek-accent);
+    margin-bottom: 15px;
+}
+
+.feature-card h5 {
+    font-size: 1.6rem;
+    /* Título do feature maior */
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #666;
+    font-size: 0.95rem;
+    /* Texto da feature um pouco menor para concisão */
+}
+
+
+/* Seção de Chamada para Ação (CTA) */
+#cta-about {
+    padding: 120px 0;
+    /* Mais padding para maior presença */
+    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('../images/logo_facebook.png') no-repeat center center;
+    /* Overlay ainda mais denso */
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--engetek-white);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+    /* Sombra mais pronunciada */
+}
+
+#cta-about h2 {
+    font-size: 3.5rem;
+    /* Título CTA maior */
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: inherit;
+}
+
+#cta-about p.lead {
+    font-size: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+
+/* Ajustes de Responsividade */
+@media (max-width: 1199.98px) {
+
+    /* Laptops menores */
+    #about-hero-banner h1 {
+        font-size: 3.8rem;
+    }
+
+    #about-hero-banner p.lead {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .value-card,
+    .feature-card {
+        padding: 30px;
+    }
+
+    .value-card i,
+    .feature-card i {
+        font-size: 3rem;
+    }
+
+    #cta-about h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    /* Tablets */
+    #about-hero-banner {
+        min-height: 50vh;
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+
+    #about-hero-banner h1 {
+        font-size: 3rem;
+    }
+
+    #about-hero-banner p.lead {
+        font-size: 1.2rem;
+    }
+
+    #our-story img {
+        transform: none;
+        /* Remove rotação em telas menores */
+        box-shadow: var(--engetek-soft-shadow);
+        /* Sombra padrão */
+        margin-top: 30px;
+        /* Espaço quando a imagem fica acima do texto */
+    }
+
+    #our-story img:hover {
+        transform: none;
+        /* Remove efeito de hover da rotação */
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 35px;
+    }
+
+    .value-card,
+    .feature-card {
+        margin-bottom: 25px;
+        /* Espaço entre cards empilhados */
+    }
+
+    .value-card h4,
+    .feature-card h5 {
+        font-size: 1.5rem;
+    }
+
+    #cta-about h2 {
+        font-size: 2.5rem;
+    }
+
+    #cta-about p.lead {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    /* Mobile */
+    #about-hero-banner {
+        min-height: 40vh;
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    #about-hero-banner h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0;
+    }
+
+    #about-hero-banner p.lead {
+        font-size: 1rem;
+    }
+
+    #our-story,
+    #mission-vision-values,
+    #why-choose-us-about,
+    #cta-about {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+    }
+
+    .section-title::after {
+        width: 60px;
+        height: 4px;
+    }
+
+    .value-card,
+    .feature-card {
+        padding: 25px;
+    }
+
+    .value-card i,
+    .feature-card i {
+        font-size: 2.8rem;
+    }
+
+    .value-card h4,
+    .feature-card h5 {
+        font-size: 1.3rem;
+    }
+
+    #cta-about h2 {
+        font-size: 2rem;
+    }
+
+    #cta-about p.lead {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Seção de Visão Geral dos Serviços (Cards) */
+#our-main-services {
+    padding: 100px 0;
+    background-color: var(--engetek-lightest-gray);
+    /* Fundo bem claro para destacar os cards */
+}
+
+.service-card {
+    /* Similar ao feature-card, mas com foco em serviço */
+    background-color: var(--engetek-white);
+    border-radius: 15px;
+    /* Cantos mais arredondados */
+    box-shadow: var(--engetek-soft-shadow);
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%;
+    border-bottom: 5px solid transparent;
+    /* Efeito de borda inferior */
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--engetek-strong-shadow);
+    border-color: var(--engetek-accent);
+    /* Cor da borda no hover */
+}
+
+.service-card i {
+    font-size: 4.5rem;
+    /* Ícones grandes */
+    color: var(--engetek-accent);
+    margin-bottom: 20px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover i {
+    transform: scale(1.1);
+}
+
+.service-card h5 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--engetek-dark-gray);
+}
+
+.service-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Seção de Detalhes dos Serviços em Destaque */
+#featured-service-details {
+    padding: 100px 0;
+    background-color: var(--engetek-white);
+}
+
+#featured-service-details h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--engetek-dark-gray);
+}
+
+#featured-service-details p.lead {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+    margin-bottom: 25px;
+}
+
+#featured-service-details p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.service-benefits {
+    margin-top: 20px;
+    padding-left: 0;
+    /* Remover padding padrão da lista */
+}
+
+.service-benefits li {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.service-benefits li i {
+    font-size: 1.2rem;
+    color: var(--engetek-accent);
+    margin-right: 12px;
+}
+
+.service-detail-img {
+    max-height: 450px;
+    /* Altura máxima para imagens de detalhe */
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: var(--engetek-soft-shadow);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    width: 100%;
+    box-shadow: 0em 3em gold;
+}
+
+.service-detail-img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--engetek-strong-shadow);
+}
+
+.service-detail-icon {
+    /* Estilo para ícones grandes de detalhe */
+    font-size: 8rem;
+    /* Ícone bem grande */
+    color: var(--engetek-accent);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.service-detail-icon:hover {
+    opacity: 1;
+}
+
+/* Seção Por Que Nossos Serviços se Destacam? (Benefícios) */
+#why-our-services {
+    padding: 100px 0;
+    background-color: var(--engetek-light-bg);
+    /* Fundo claro para contraste */
+}
+
+.benefit-card {
+    /* Reutiliza o estilo do feature-card com pequenas adaptações */
+    background-color: var(--engetek-white);
+    border-radius: 15px;
+    /* Cantos mais arredondados */
+    box-shadow: var(--engetek-soft-shadow);
+    padding: 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease;
+    height: 100%;
+    border-top: 5px solid transparent;
+    /* Borda superior para destaque */
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--engetek-strong-shadow);
+    border-top-color: var(--engetek-accent);
+    /* Cor da borda superior no hover */
+}
+
+.benefit-card i {
+    font-size: 4rem;
+    color: var(--engetek-accent);
+    margin-bottom: 18px;
+}
+
+.benefit-card h5 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--engetek-dark-gray);
+}
+
+.benefit-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Seção de Chamada para Ação Final */
+#cta-services {
+    /* Nova ID */
+    padding: 120px 0;
+    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('../images/logo_facebook.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--engetek-white);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+}
+
+#cta-services h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+#cta-services p.lead {
+    font-size: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+/* Ajustes de Responsividade */
+@media (max-width: 1199.98px) {
+    #services-hero-banner h1 {
+        font-size: 3.8rem;
+    }
+
+    #services-hero-banner p.lead {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .service-card,
+    .benefit-card {
+        padding: 30px;
+    }
+
+    .service-card i,
+    .benefit-card i {
+        font-size: 4rem;
+    }
+
+    #featured-service-details h3 {
+        font-size: 2rem;
+    }
+
+    #featured-service-details p.lead {
+        font-size: 1.2rem;
+    }
+
+    #cta-services h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    #services-hero-banner {
+        min-height: 50vh;
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+
+    #services-hero-banner h1 {
+        font-size: 3rem;
+    }
+
+    #services-hero-banner p.lead {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+
+    .service-card,
+    .benefit-card {
+        margin-bottom: 25px;
+    }
+
+    .service-card i,
+    .benefit-card i {
+        font-size: 3.5rem;
+    }
+
+    #featured-service-details .row {
+        flex-direction: column-reverse;
+    }
+
+    /* Inverte ordem para mobile */
+    #featured-service-details .order-lg-1,
+    #featured-service-details .order-lg-2 {
+        order: unset !important;
+    }
+
+    #featured-service-details .order-1 {
+        order: 1;
+    }
+
+    #featured-service-details .order-2 {
+        order: 2;
+    }
+
+    .service-detail-img {
+        max-height: 350px;
+        margin-bottom: 30px;
+    }
+
+    .service-detail-icon {
+        margin-bottom: 30px;
+    }
+
+    #cta-services h2 {
+        font-size: 2.5rem;
+    }
+
+    #cta-services p.lead {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #services-hero-banner {
+        min-height: 40vh;
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    #services-hero-banner h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0;
+    }
+
+    #services-hero-banner p.lead {
+        font-size: 1rem;
+    }
+
+    #our-main-services,
+    #featured-service-details,
+    #why-our-services,
+    #cta-services {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+    }
+
+    .section-title::after {
+        width: 60px;
+        height: 4px;
+    }
+
+    .service-card,
+    .benefit-card {
+        padding: 25px;
+    }
+
+    .service-card i,
+    .benefit-card i {
+        font-size: 3rem;
+    }
+
+    .service-card h5,
+    .benefit-card h5 {
+        font-size: 1.5rem;
+    }
+
+    #featured-service-details h3 {
+        font-size: 1.8rem;
+    }
+
+    #featured-service-details p.lead {
+        font-size: 1rem;
+    }
+
+    .service-benefits li {
+        font-size: 0.95rem;
+    }
+
+    .service-detail-img {
+        max-height: 280px;
+    }
+
+    .service-detail-icon {
+        font-size: 6rem;
+    }
+
+    #cta-services h2 {
+        font-size: 2rem;
+    }
+
+    #cta-services p.lead {
+        font-size: 1rem;
+    }
+}
+
+/* Banner de Título da Página de Portfólio */
+#portfolio-hero-banner {
+    /* Nova ID */
+    padding-top: 120px;
+    padding-bottom: 100px;
+    min-height: 60vh;
+    color: var(--engetek-white);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(47, 54, 63, 0.8), rgba(47, 54, 63, 0.8)), url('../images/logo_facebook.png') no-repeat center center;
+    /* Usando a outra imagem */
+    background-size: cover;
+    animation: bannerZoom 20s infinite alternate;
+}
+
+#portfolio-hero-banner h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+#portfolio-hero-banner p.lead {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+/* Seção do Grid de Portfólio */
+#portfolio-grid {
+    padding: 100px 0;
+    background-color: var(--engetek-lightest-gray);
+}
+
+.portfolio-item {
+    background-color: var(--engetek-white);
+    border-radius: 15px;
+    box-shadow: var(--engetek-soft-shadow);
+    overflow: hidden;
+    /* Garante que a imagem e os cantos arredondados funcionem juntos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    /* Para o stretched-link */
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--engetek-strong-shadow);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px;
+    /* Altura fixa para as imagens no grid */
+    object-fit: cover;
+    /* Garante que a imagem cubra a área sem distorção */
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+    /* Zoom sutil na imagem no hover */
+}
+
+.portfolio-info {
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+    /* Para garantir que o texto fique acima do stretched-link */
+}
+
+.portfolio-info h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--engetek-dark-gray);
+}
+
+.portfolio-info p {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.portfolio-info p span {
+    font-weight: 600;
+    color: var(--engetek-dark-gray);
+}
+
+.portfolio-info .btn-outline-primary {
+    border-color: var(--engetek-accent);
+    color: var(--engetek-accent);
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.portfolio-info .btn-outline-primary:hover {
+    background-color: var(--engetek-accent);
+    color: var(--engetek-white);
+}
+
+/* Estilo para botões de filtro (opcional) */
+#portfolio-grid .btn-group .btn {
+    border-radius: 50px;
+    /* Botões mais arredondados */
+    margin: 0 5px;
+    /* Espaçamento entre os botões */
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-color: var(--engetek-lighter-gray);
+    /* Borda sutil */
+    color: var(--engetek-dark-gray);
+}
+
+#portfolio-grid .btn-group .btn-outline-primary.active,
+#portfolio-grid .btn-group .btn-outline-primary:hover {
+    background-color: var(--engetek-accent);
+    border-color: var(--engetek-accent);
+    color: var(--engetek-white);
+    box-shadow: 0 4px 10px rgba(255, 103, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+
+/* Seção de Chamada para Ação do Portfólio */
+#cta-portfolio {
+    /* Nova ID */
+    padding: 120px 0;
+    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('../images/logo_facebook.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--engetek-white);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+}
+
+#cta-portfolio h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+#cta-portfolio p.lead {
+    font-size: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+/* Ajustes de Responsividade */
+@media (max-width: 1199.98px) {
+    #portfolio-hero-banner h1 {
+        font-size: 3.8rem;
+    }
+
+    #portfolio-hero-banner p.lead {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .portfolio-item img {
+        height: 220px;
+    }
+
+    .portfolio-info h5 {
+        font-size: 1.3rem;
+    }
+
+    #cta-portfolio h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    #portfolio-hero-banner {
+        min-height: 50vh;
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+
+    #portfolio-hero-banner h1 {
+        font-size: 3rem;
+    }
+
+    #portfolio-hero-banner p.lead {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+
+    .portfolio-item {
+        margin-bottom: 25px;
+    }
+
+    /* Espaçamento entre cards empilhados */
+    .portfolio-item img {
+        height: 200px;
+    }
+
+    .portfolio-info h5 {
+        font-size: 1.2rem;
+    }
+
+    #portfolio-grid .btn-group .btn {
+        margin-bottom: 10px;
+    }
+
+    /* Espaço para botões de filtro em mobile */
+    #cta-portfolio h2 {
+        font-size: 2.5rem;
+    }
+
+    #cta-portfolio p.lead {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #portfolio-hero-banner {
+        min-height: 40vh;
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    #portfolio-hero-banner h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0;
+    }
+
+    #portfolio-hero-banner p.lead {
+        font-size: 1rem;
+    }
+
+    #portfolio-grid,
+    #cta-portfolio {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+    }
+
+    .section-title::after {
+        width: 60px;
+        height: 4px;
+    }
+
+    .portfolio-item img {
+        height: 180px;
+    }
+
+    .portfolio-info {
+        padding: 20px;
+    }
+
+    .portfolio-info h5 {
+        font-size: 1.1rem;
+    }
+
+    #portfolio-grid .btn-group {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Quebra de linha para filtros */
+    #portfolio-grid .btn-group .btn {
+        flex: 1 0 45%;
+        margin: 5px;
+    }
+
+    /* Botões de filtro ocupam mais espaço */
+    #cta-portfolio h2 {
+        font-size: 2rem;
+    }
+
+    #cta-portfolio p.lead {
+        font-size: 1rem;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .hero form {
+        max-width: 100%;
+    }
+
+    .carousel-item .row {
+        flex-direction: column;
+    }
+
+    .carousel-item img {
+        height: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Carrossel */
+.carousel-inner {
+    padding: 20px 0;
+}
+
+.carousel-item .row {
+    width: 100%;
+    margin: 0;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background: rgba(47, 54, 63, 0.5);
+    width: 10%;
+    height: 57vh;
+    top: 20px !important;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(47, 54, 63, 0.8);
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #2F363F;
+}
+
+.carousel-indicators .active {
+    background-color: #FF6700;
+}
+
+.carousel-indicators {
+    top: 100% !important;
+}

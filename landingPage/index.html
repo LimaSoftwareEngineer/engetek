@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGETEK - Soluções em Engenharia e Tecnologia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Animações personalizadas */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Header */
+        header {
+            background: #2F363F;
+            padding: 15px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #FF6700;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(47, 54, 63, 0.7), rgba(47, 54, 63, 0.7)), url('../images/logo_facebook.png') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            color: #fff;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .hero form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .hero input,
+        .hero textarea {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            background: #fff;
+            color: #333;
+        }
+
+        .hero .cta {
+            background: #FF6700;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero .cta:hover {
+            background: #e55a00;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 60px 20px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .benefits h2 {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #2F363F;
+            margin-bottom: 40px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-item i {
+            font-size: 2.5em;
+            color: #FF6700;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2F363F;
+            margin-bottom: 10px;
+        }
+
+        .benefit-item p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: 60px 20px;
+            text-align: center;
+            background: #2F363F;
+            color: #fff;
+        }
+
+        .social-proof h2 {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #FF6700;
+            margin-bottom: 40px;
+        }
+
+        .social-proof .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .testimonial cite {
+            font-size: 0.9em;
+            color: #FF6700;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #2F363F;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        footer .social-links a {
+            color: #FF6700;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        footer .social-links a:hover {
+            color: #e55a00;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .hero form {
+                max-width: 100%;
+            }
+
+            .benefits h2,
+            .social-proof h2 {
+                font-size: 1.8em;
+            }
+
+            .benefits-grid,
+            .social-proof .testimonials {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">ENGETEK</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Transforme Seus Projetos com a ENGETEK</h1>
+            <p>Soluções inovadoras em engenharia e tecnologia para impulsionar seu negócio.</p>
+            <form>
+                <input type="text" placeholder="Nome" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="tel" placeholder="Telefone" required>
+                <textarea placeholder="Fale sobre seu projeto" rows="4"></textarea>
+                <button type="submit" class="cta animate-pulse"><i class="bi bi-whatsapp me-2"></i>Quero uma Solução</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <h2 data-aos="fade-up">Por que Escolher a ENGETEK?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-bolt"></i>
+                <h3>Soluções Personalizadas</h3>
+                <p>Projetos sob medida para atender às suas necessidades específicas.</p>
+            </div>
+            <div class="benefit-item" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Qualidade Garantida</h3>
+                <p>Compromisso com a excelência em cada etapa do projeto.</p>
+            </div>
+            <div class="benefit-item" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-clock"></i>
+                <h3>Entrega no Prazo</h3>
+                <p>Respeitamos seus prazos com eficiência e pontualidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <h2 data-aos="fade-up">O que Nossos Clientes Dizem</h2>
+        <div class="testimonials">
+            <div class="testimonial" data-aos="slide-up" data-aos-delay="100">
+                <p>"A ENGETEK entregou nosso projeto com qualidade excepcional e no prazo!"</p>
+                <cite>– João Silva, CEO da Empresa X</cite>
+            </div>
+            <div class="testimonial" data-aos="slide-up" data-aos-delay="200">
+                <p>"Soluções práticas que transformaram nossa operação."</p>
+                <cite>– Maria Oliveira, Gerente de Projetos</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>ENGETEK Engenharia e Tecnologia – Soluções para o Futuro</p>
+        <p>Email: contato@engetek.com | Telefone: (11) 1234-5678</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/engetek.engenharia/"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+
+</html>
