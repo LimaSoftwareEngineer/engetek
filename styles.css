@@ -61,7 +61,7 @@ a:hover {
 
 /* Seção Herói (Hero Section) */
 #hero {
-    background: linear-gradient(rgba(47, 54, 63, 0.7), rgba(47, 54, 63, 0.7)), url('../images/bannerHeroImage.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.7), rgba(47, 54, 63, 0.7)), url('./images/bannerHeroImage.png') no-repeat center center;
     background-size: cover;
     height: 100vh;
     /* Altura total da viewport */
@@ -86,7 +86,7 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../images/bannerHeroImage.png') no-repeat center center;
+    background: url('./images/bannerHeroImage.png') no-repeat center center;
     /* Repete a imagem para a animação */
     background-size: cover;
     animation: heroZoom 20s infinite alternate;
@@ -603,7 +603,7 @@ h6 {
     justify-content: center;
     min-height: 40vh;
     /* Um pouco mais alta para impacto visual */
-    background: linear-gradient(rgba(47, 54, 63, 0.7), rgba(47, 54, 63, 0.7)), url('../images/bannerContact.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.7), rgba(47, 54, 63, 0.7)), url('./images/bannerContact.png') no-repeat center center;
     /* Nova imagem para um visual mais 'engenharia' */
     background-size: cover;
     /* Animação de fundo sutil se desejar: */
@@ -969,7 +969,7 @@ h6 {
     justify-content: center;
     min-height: 50vh;
     /* Altura maior para impacto */
-    background: linear-gradient(rgba(47, 54, 63, 0.75), rgba(47, 54, 63, 0.75)), url('../images/bannerContact.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.75), rgba(47, 54, 63, 0.75)), url('./images/bannerContact.png') no-repeat center center;
     background-size: cover;
     animation: bannerZoom 20s infinite alternate;
     /* Animação sutil de zoom */
@@ -1315,7 +1315,7 @@ h6 {
     justify-content: center;
     min-height: 50vh;
     /* Usando a imagem carregada pelo usuário image_a1f9bc.jpg */
-    background: linear-gradient(rgba(47, 54, 63, 0.75), rgba(47, 54, 63, 0.75)), url('../images/Screenshot\ 2025-06-28\ at\ 17-50-12\ civilin.jpg\ \(imagem\ JPEG\ 750\ ×\ 295\ pixels\).png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.75), rgba(47, 54, 63, 0.75)), url('./images/Screenshot\ 2025-06-28\ at\ 17-50-12\ civilin.jpg\ \(imagem\ JPEG\ 750\ ×\ 295\ pixels\).png') no-repeat center center;
     background-size: cover;
     animation: bannerZoom 20s infinite alternate;
     /* Animação sutil de zoom */
@@ -1625,7 +1625,7 @@ h6 {
     /* Mais espaço no rodapé do banner */
     min-height: 60vh;
     /* Banner mais alto para maior impacto */
-    background: linear-gradient(rgba(47, 54, 63, 0.8), rgba(47, 54, 63, 0.8)), url('../images/banner7.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.8), rgba(47, 54, 63, 0.8)), url('./images/banner7.png') no-repeat center center;
     /* Overlay mais denso */
     background-size: cover;
     background-attachment: scroll;
@@ -1864,7 +1864,7 @@ h6 {
 #cta-about {
     padding: 120px 0;
     /* Mais padding para maior presença */
-    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('../images/logo_facebook.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('./images/logo_facebook.png') no-repeat center center;
     /* Overlay ainda mais denso */
     background-size: cover;
     background-attachment: fixed;
@@ -2217,7 +2217,7 @@ h6 {
 #cta-services {
     /* Nova ID */
     padding: 120px 0;
-    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('../images/logo_facebook.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('./images/logo_facebook.png') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     color: var(--engetek-white);
@@ -2428,7 +2428,7 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(47, 54, 63, 0.8), rgba(47, 54, 63, 0.8)), url('../images/logo_facebook.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.8), rgba(47, 54, 63, 0.8)), url('./images/logo_facebook.png') no-repeat center center;
     /* Usando a outra imagem */
     background-size: cover;
     animation: bannerZoom 20s infinite alternate;
@@ -2548,7 +2548,7 @@ h6 {
 #cta-portfolio {
     /* Nova ID */
     padding: 120px 0;
-    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('../images/logo_facebook.png') no-repeat center center;
+    background: linear-gradient(rgba(47, 54, 63, 0.9), rgba(47, 54, 63, 0.9)), url('./images/logo_facebook.png') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     color: var(--engetek-white);
